@@ -95,3 +95,168 @@ function kirim() {
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>FiiStore Top Up</title>
+<link rel="icon" href="logo.png">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin:0;
+    background: linear-gradient(to bottom, #0f172a, #020617);
+    color: white;
+    text-align: center;
+}
+
+.header {
+    background: #020617;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: cyan;
+}
+
+.header img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px;
+}
+
+.card {
+    background: #111827;
+    width: 220px;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 0 15px #00ffff44;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin: 10px 0 5px;
+    color: cyan;
+}
+
+.card select, .card input {
+    width: 90%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    background: cyan;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+<img src="logo.png" alt="FiiStore Logo">
+<br>FiiStore Top Up Murah
+</div>
+
+<h2>Pilih Game & Order</h2>
+
+<div class="game-container">
+
+<!-- Roblox -->
+<div class="card">
+<img src="roblox.png" alt="Roblox">
+<h3>Roblox</h3>
+<input type="text" id="id-roblox" placeholder="Masukkan ID Game">
+<select id="nominal-roblox">
+<option value="10k">10k</option>
+<option value="20k">20k</option>
+<option value="50k">50k</option>
+<option value="100k">100k</option>
+</select>
+<button onclick="order('Roblox')">Order via WhatsApp</button>
+</div>
+
+<!-- Mobile Legends -->
+<div class="card">
+<img src="ml.png" alt="Mobile Legends">
+<h3>Mobile Legends</h3>
+<input type="text" id="id-ml" placeholder="Masukkan ID Game">
+<select id="nominal-ml">
+<option value="10k">10k</option>
+<option value="20k">20k</option>
+<option value="50k">50k</option>
+<option value="100k">100k</option>
+</select>
+<button onclick="order('Mobile Legends')">Order via WhatsApp</button>
+</div>
+
+<!-- Free Fire -->
+<div class="card">
+<img src="ff.png" alt="Free Fire">
+<h3>Free Fire</h3>
+<input type="text" id="id-ff" placeholder="Masukkan ID Game">
+<select id="nominal-ff">
+<option value="10k">10k</option>
+<option value="20k">20k</option>
+<option value="50k">50k</option>
+<option value="100k">100k</option>
+</select>
+<button onclick="order('Free Fire')">Order via WhatsApp</button>
+</div>
+
+</div>
+
+<script>
+function order(game) {
+    var no = "6283846641537"; // Ganti nomor WA kamu
+    var id = "";
+    var nominal = "";
+
+    if(game === "Roblox"){
+        id = document.getElementById("id-roblox").value;
+        nominal = document.getElementById("nominal-roblox").value;
+    }
+    if(game === "Mobile Legends"){
+        id = document.getElementById("id-ml").value;
+        nominal = document.getElementById("nominal-ml").value;
+    }
+    if(game === "Free Fire"){
+        id = document.getElementById("id-ff").value;
+        nominal = document.getElementById("nominal-ff").value;
+    }
+
+    if(!id){
+        alert("Masukkan ID Game terlebih dahulu!");
+        return;
+    }
+
+    var url = "https://wa.me/" + no +
+              "?text=Halo FiiStore saya ingin order%0A" +
+              "Game: " + game + "%0A" +
+              "ID: " + id + "%0A" +
+              "Nominal: " + nominal;
+
+    window.open(url);
+}
+</script>
+
+</body>
+</html>
