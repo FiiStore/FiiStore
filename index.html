@@ -14,3 +14,84 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>FiiStore Top Up Murah</title>
+<link rel="icon" href="logo.png">
+<style>
+body {
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+}
+.header {
+    background: #020617;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: cyan;
+}
+.box {
+    background: #111827;
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+input, select {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+}
+button {
+    background: cyan;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="header">FiiStore Top Up Murah</div>
+
+<h2>Order Top Up</h2>
+
+<div class="box">
+<input type="text" id="idgame" placeholder="Masukkan ID Game">
+<select id="game">
+<option>Roblox</option>
+<option>Mobile Legends</option>
+<option>Free Fire</option>
+</select>
+<select id="nominal">
+<option>10k</option>
+<option>20k</option>
+<option>50k</option>
+<option>100k</option>
+</select>
+<button onclick="kirim()">Order via WhatsApp</button>
+</div>
+
+<script>
+function kirim() {
+    var id = document.getElementById("idgame").value;
+    var game = document.getElementById("game").value;
+    var nominal = document.getElementById("nominal").value;
+    var no = "6283846641537"; // Ganti nomor WhatsApp kamu
+
+    var url = "https://wa.me/" + no +
+              "?text=Halo FiiStore saya ingin order%0A" +
+              "Game: " + game + "%0A" +
+              "ID: " + id + "%0A" +
+              "Nominal: " + nominal;
+
+    window.open(url);
+}
+</script>
+
+</body>
+</html>
